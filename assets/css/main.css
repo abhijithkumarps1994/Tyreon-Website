@@ -1,0 +1,17 @@
+:root {
+  --color-primary: #000000;
+  --color-accent: #f5c518;
+  --color-text: #ffffff;
+  --color-surface: #1a1a1a;
+}
+
+/*
+ * Shared logo baseline. Use this class whenever the TYREON logo is placed
+ * in a future navigation, footer, loading screen, or mobile menu.
+ */
+.brand-logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
