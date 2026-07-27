@@ -46,3 +46,31 @@ const observer = new IntersectionObserver((entries) => entries.forEach((entry) =
 
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
+
+const filters = document.querySelectorAll("[data-filter]");
+const productSearch = document.querySelector("[data-product-search]");
+const productCards = document.querySelectorAll(".tyre-card");
+const productCount = document.querySelector("[data-product-count]");
+const emptyResults = document.querySelector("[data-empty-results]");
+let activeCategory = "all";
+
+const filterProducts = () => {
+  const query = productSearch?.value.trim().toLowerCase() || "";
+  let visible = 0;
+  productCards.forEach((card) => {
+    const categoryMatch = activeCategory === "all" || card.dataset.category === activeCategory;
+    const queryMatch = !query || card.dataset.search.includes(query);
+    const show = categoryMatch && queryMatch;
+    card.hidden = !show;
+    if (show) visible += 1;
+  });
+  if (productCount) productCount.textContent = `Showing ${visible} tyre${visible === 1 ? "" : "s"}`;
+  if (emptyResults) emptyResults.hidden = visible !== 0;
+};
+
+filters.forEach((filter) => filter.addEventListener("click", () => {
+  activeCategory = filter.dataset.filter;
+  filters.forEach((button) => button.classList.toggle("active", button === filter));
+  filterProducts();
+}));
+productSearch?.addEventListener("input", filterProducts);
