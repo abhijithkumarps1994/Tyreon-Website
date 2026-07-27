@@ -4,14 +4,6 @@ const header = document.querySelector("[data-header]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const menu = document.querySelector("[data-menu]");
 
-if (!document.querySelector(".page-loader")) {
-  const loader = document.createElement("div");
-  loader.className = "page-loader";
-  loader.setAttribute("aria-hidden", "true");
-  loader.innerHTML = '<img class="brand-logo" src="assets/images/tyreon-logo.png" alt="">';
-  document.body.prepend(loader);
-}
-
 const setHeaderState = () => header?.classList.toggle("scrolled", window.scrollY > 20);
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });
@@ -22,6 +14,12 @@ menuToggle?.addEventListener("click", () => {
   menuToggle.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
   menu.classList.toggle("open", !isOpen);
   document.body.style.overflow = isOpen ? "" : "hidden";
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || menuToggle?.getAttribute("aria-expanded") !== "true") return;
+  menuToggle.click();
+  menuToggle.focus();
 });
 
 menu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {

@@ -1,8 +1,9 @@
 {
   "name": "TYREON",
   "short_name": "TYREON",
-  "description": "TYREON website",
-  "start_url": "./",
+  "description": "Premium tyres and professional wheel care in Kochi.",
+  "start_url": "/",
+  "id": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#111111",
