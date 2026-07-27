@@ -1,6 +1,76 @@
-.contact-hero{background:radial-gradient(circle at 78% 35%,rgba(245,197,24,.16),transparent 18%),linear-gradient(120deg,#080808 20%,#1a1a1a)}.contact-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:100px;align-items:center}.contact-intro h2{margin-bottom:23px}.contact-intro>p:not(.eyebrow){max-width:420px;color:#aaa;font-size:17px}.contact-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:35px}.hours-card{padding:40px;border:1px solid var(--color-line);background:#151515}.hours-card h3{margin:0 0 30px;font-family:var(--font-display);font-size:34px;font-weight:400}.hours-row{display:flex;justify-content:space-between;gap:15px;padding:17px 0;border-top:1px solid var(--color-line);font-size:13px}.hours-row strong{font-weight:500}.hours-row.closed strong{color:var(--color-accent)}.map-section{position:relative;height:480px;background:#181818}/* ===========================
-   Google Map
-=========================== */
+/* ==========================================
+   CONTACT HERO
+========================================== */
+
+.contact-hero{
+    background:
+        radial-gradient(circle at 78% 35%, rgba(245,197,24,.16), transparent 18%),
+        linear-gradient(120deg,#080808 20%,#1a1a1a);
+}
+
+/* ==========================================
+   CONTACT DETAILS
+========================================== */
+
+.contact-layout{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:90px;
+    align-items:center;
+}
+
+.contact-intro h2{
+    margin-bottom:24px;
+}
+
+.contact-intro>p:not(.eyebrow){
+    max-width:430px;
+    color:#aaa;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.contact-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:36px;
+}
+
+/* ==========================================
+   HOURS CARD
+========================================== */
+
+.hours-card{
+    padding:42px;
+    border:1px solid var(--color-line);
+    background:#151515;
+}
+
+.hours-card h3{
+    margin:0 0 30px;
+    font-family:var(--font-display);
+    font-size:34px;
+    font-weight:400;
+}
+
+.hours-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    padding:18px 0;
+    border-top:1px solid var(--color-line);
+    font-size:14px;
+}
+
+.hours-row.closed strong{
+    color:var(--color-accent);
+}
+
+/* ==========================================
+   MAP
+========================================== */
 
 .map-section{
     position:relative;
@@ -14,33 +84,30 @@
     height:100%;
     border:0;
     display:block;
-
-    /* Remove dark filter */
     filter:none;
 }
 
 .map-label{
     position:absolute;
-    bottom:28px;
     left:max(24px,calc((100vw - var(--container))/2));
+    bottom:28px;
 
-    padding:22px 26px;
+    padding:22px 28px;
 
     background:rgba(0,0,0,.88);
-    backdrop-filter:blur(12px);
 
-    color:#fff;
+    backdrop-filter:blur(10px);
 
     border-left:4px solid var(--color-accent);
 
-    box-shadow:0 15px 45px rgba(0,0,0,.35);
+    color:#fff;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
 }
 
 .map-label span{
     display:block;
-
     color:var(--color-accent);
-
     font-size:10px;
     font-weight:700;
     letter-spacing:.15em;
@@ -48,10 +115,282 @@
 }
 
 .map-label p{
-    margin:8px 0 0;
+    margin-top:8px;
+    color:#ddd;
+    line-height:1.6;
+    font-size:13px;
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+.form-section{
+    background:#151515;
+    padding:90px 0;
+}
+
+.form-layout{
+    display:grid;
+    grid-template-columns:420px 1fr;
+    gap:80px;
+    align-items:start;
+}
+
+.form-side-copy{
+    color:#aaa;
+    line-height:1.8;
+    font-size:16px;
+}
+
+.contact-data{
+    margin-top:40px;
+}
+
+.contact-data>*{
+    display:block;
+    margin:20px 0;
+    color:#ddd;
+    line-height:1.7;
+    font-size:14px;
+}
+
+.contact-data small{
+    display:block;
+    margin-bottom:6px;
+    color:var(--color-accent);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+}
+
+/* ==========================================
+   CONTACT FORM
+========================================== */
+
+.contact-form{
+    display:grid;
+    gap:26px;
+    width:100%;
+}
+
+.field-row{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:24px;
+}
+
+.contact-form label{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
 
     color:#ddd;
 
-    font-size:13px;
-    line-height:1.6;
-}.map-label{position:absolute;bottom:28px;left:max(24px,calc((100vw - var(--container))/2));padding:19px 22px;background:#000;color:#fff}.map-label span{color:var(--color-accent);font-size:10px;font-weight:700;letter-spacing:.14em}.map-label p{margin:7px 0 0;color:#bbb;font-size:12px;line-height:1.5}.form-section{background:#151515}.form-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:100px}.form-side-copy{max-width:400px;color:#aaa;font-size:16px}.contact-data{margin-top:45px}.contact-data>*{display:block;margin:19px 0;color:#d4d4d4;font-size:13px;line-height:1.65}.contact-data small{display:block;margin-bottom:4px;color:var(--color-accent);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.contact-form{display:grid;gap:23px}.field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact-form label{display:grid;gap:8px;color:#aaa;font-size:10px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}.contact-form input,.contact-form select,.contact-form textarea{width:100%;padding:12px 0;border:0;border-bottom:1px solid var(--color-line);outline:0;background:transparent;color:#fff;font:14px var(--font-body);letter-spacing:normal;text-transform:none;transition:border-color .2s}.contact-form select{color:#fff}.contact-form option{background:#151515}.contact-form textarea{resize:vertical}.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{border-color:var(--color-accent)}.contact-form .button{justify-self:start;margin-top:5px}.form-status{min-height:20px;margin:0;color:var(--color-accent);font-size:12px}.floating-actions{position:fixed;z-index:90;right:20px;bottom:20px;display:grid;gap:8px}.floating-actions a{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid rgba(245,197,24,.65);background:#080808;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.28);font-size:10px;letter-spacing:.1em;text-transform:uppercase}.floating-actions span{display:grid;width:25px;height:25px;place-items:center;border-radius:50%;background:var(--color-accent);color:#000;font-size:14px}@media(max-width:800px){.contact-layout,.form-layout{grid-template-columns:1fr;gap:50px}.map-section{height:410px}.field-row{grid-template-columns:1fr}.form-section{padding-bottom:115px}}@media(max-width:500px){.hours-card{padding:27px 23px}.hours-row{flex-direction:column;gap:4px}.contact-actions .button{width:100%;justify-content:space-between}.map-label{right:18px;left:18px;bottom:18px}.floating-actions{right:13px;bottom:13px}.floating-actions b{display:none}.floating-actions a{width:47px;height:47px;justify-content:center;padding:0;border-radius:50%}}
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:.02em;
+
+    text-transform:none;
+
+    width:100%;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:15px 18px;
+
+    border:1px solid #2b2b2b;
+
+    border-radius:10px;
+
+    background:#1d1d1d;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-family:inherit;
+
+    transition:.25s;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color:#777;
+}
+
+.contact-form textarea{
+    min-height:160px;
+    resize:vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+
+    border-color:var(--color-accent);
+
+    outline:none;
+
+    background:#222;
+}
+
+.contact-form button{
+
+    width:220px;
+
+    margin-top:10px;
+}
+
+.form-status{
+    color:var(--color-accent);
+    font-size:14px;
+    min-height:20px;
+}
+
+/* ==========================================
+   FLOATING BUTTONS
+========================================== */
+
+.floating-actions{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    z-index:100;
+
+    display:grid;
+
+    gap:10px;
+}
+
+.floating-actions a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 15px;
+
+    background:#080808;
+
+    color:#fff;
+
+    border:1px solid rgba(245,197,24,.65);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+    text-decoration:none;
+}
+
+.floating-actions span{
+
+    display:grid;
+
+    place-items:center;
+
+    width:28px;
+
+    height:28px;
+
+    border-radius:50%;
+
+    background:var(--color-accent);
+
+    color:#000;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:900px){
+
+    .contact-layout,
+    .form-layout{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+    }
+
+    .field-row{
+
+        grid-template-columns:1fr;
+    }
+
+    .map-section{
+
+        height:420px;
+    }
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:600px){
+
+    .hours-card{
+
+        padding:28px;
+    }
+
+    .contact-actions{
+
+        flex-direction:column;
+    }
+
+    .contact-actions .button{
+
+        width:100%;
+    }
+
+    .map-label{
+
+        left:18px;
+
+        right:18px;
+
+        bottom:18px;
+    }
+
+    .floating-actions{
+
+        right:12px;
+
+        bottom:12px;
+    }
+
+    .floating-actions b{
+
+        display:none;
+    }
+
+    .floating-actions a{
+
+        width:48px;
+
+        height:48px;
+
+        justify-content:center;
+
+        padding:0;
+
+        border-radius:50%;
+    }
+
+}
