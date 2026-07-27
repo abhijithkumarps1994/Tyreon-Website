@@ -4,7 +4,15 @@ const header = document.querySelector("[data-header]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const menu = document.querySelector("[data-menu]");
 
-const setHeaderState = () => header.classList.toggle("scrolled", window.scrollY > 20);
+if (!document.querySelector(".page-loader")) {
+  const loader = document.createElement("div");
+  loader.className = "page-loader";
+  loader.setAttribute("aria-hidden", "true");
+  loader.innerHTML = '<img class="brand-logo" src="assets/images/tyreon-logo.png" alt="">';
+  document.body.prepend(loader);
+}
+
+const setHeaderState = () => header?.classList.toggle("scrolled", window.scrollY > 20);
 setHeaderState();
 window.addEventListener("scroll", setHeaderState, { passive: true });
 
@@ -45,7 +53,8 @@ const observer = new IntersectionObserver((entries) => entries.forEach((entry) =
 }), { threshold: 0.18 });
 
 document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
-document.querySelector("[data-year]").textContent = new Date().getFullYear();
+const year = document.querySelector("[data-year]");
+if (year) year.textContent = new Date().getFullYear();
 
 const filters = document.querySelectorAll("[data-filter]");
 const productSearch = document.querySelector("[data-product-search]");
@@ -74,3 +83,37 @@ filters.forEach((filter) => filter.addEventListener("click", () => {
   filterProducts();
 }));
 productSearch?.addEventListener("input", filterProducts);
+
+const backToTop = document.createElement("button");
+backToTop.className = "back-to-top";
+backToTop.type = "button";
+backToTop.setAttribute("aria-label", "Back to top");
+backToTop.innerHTML = "↑";
+document.body.append(backToTop);
+
+const updateBackToTop = () => backToTop.classList.toggle("visible", window.scrollY > 650);
+updateBackToTop();
+window.addEventListener("scroll", updateBackToTop, { passive: true });
+backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+document.querySelectorAll(".button, .nav-cta").forEach((button) => button.addEventListener("click", (event) => {
+  const ripple = document.createElement("span");
+  const box = button.getBoundingClientRect();
+  ripple.className = "ripple";
+  ripple.style.left = `${event.clientX - box.left}px`;
+  ripple.style.top = `${event.clientY - box.top}px`;
+  button.append(ripple);
+  ripple.addEventListener("animationend", () => ripple.remove());
+}));
+
+const parallaxItems = document.querySelectorAll(".hero-image, .inner-hero");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const applyParallax = () => {
+  if (prefersReducedMotion) return;
+  parallaxItems.forEach((item) => {
+    const offset = Math.max(-34, Math.min(34, window.scrollY * -0.045));
+    item.style.transform = `translate3d(0, ${offset}px, 0)`;
+  });
+};
+applyParallax();
+window.addEventListener("scroll", applyParallax, { passive: true });
